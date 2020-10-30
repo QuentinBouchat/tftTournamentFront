@@ -5,16 +5,24 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "schema:fetch": "node ./scripts/fetch-schema.js",
+    "schema:generate": "node ./scripts/schema-codegen.js --srcPath ./src/api/api-schema.json --destPath ./src/api/dto --separatedFiles true",
+    "schema:codegen": "npm run schema:fetch && npm run schema:generate"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.164",
     "core-js": "^3.6.5",
+    "lodash": "^4.17.20",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
+    "vue-material": "^1.0.0-beta-15",
     "vue-property-decorator": "^8.4.2",
     "vue-router": "^3.2.0"
   },
   "devDependencies": {
+    "@codegena/oapi3ts-cli": "^2.1.10-alpha.8",
+    "@types/vue-material": "git+https://github.com/calebsander/vue-material-types.git",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -24,6 +32,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-airbnb": "^5.0.2",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "axios": "^0.21.0",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
